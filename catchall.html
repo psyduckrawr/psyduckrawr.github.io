@@ -36,12 +36,10 @@ function generate(){
 					newemail += nums[0];
 				}
 				newemail += domain;	
-				console.log(newemail + " " + newemail.length)
 				textbox.value += newemail;
 				if (i != tally-1) textbox.value += "\n";
 				if (newemail.length > maxlength) maxlength = newemail.length
 			}
-			console.log(maxlength);
 			textbox.setAttribute("cols",maxlength+8);
 		}
 	}
