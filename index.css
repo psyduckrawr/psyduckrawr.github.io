@@ -93,3 +93,12 @@ textarea, .bginput
 	margin:0px 3px;
 	
 }
+img{
+	width:25px;
+}
+#aim{
+	position:absolute;
+	bottom:0;
+	right:10px;
+}
+
