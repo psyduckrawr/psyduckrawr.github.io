@@ -25,6 +25,7 @@ function generate(){
 		if (tally > 50) rows = 50;
 		textbox.value = "";
 		textbox.setAttribute("rows",rows);
+		var maxlength = 10;
 		for (var i = 0; i < tally; i++){
 			if (i <= 10000){
 				fnames.sort(randOrd);
@@ -35,9 +36,13 @@ function generate(){
 					newemail += nums[0];
 				}
 				newemail += domain;	
+				console.log(newemail + " " + newemail.length)
 				textbox.value += newemail;
 				if (i != tally-1) textbox.value += "\n";
+				if (newemail.length > maxlength) maxlength = newemail.length
 			}
+			console.log(maxlength);
+			textbox.setAttribute("cols",maxlength+8);
 		}
 	}
 }
@@ -66,7 +71,7 @@ function encodeHTML(s) {
 <td class="alt1" align="center">
 Enter your catchall domain: <input type='text' class = "bginput" id='domain'  size = "20"/>
 How many? <input type='text' id='number' class = "bginput"  size = "5"/>
-<input type="submit" class = "button" value="Submit" id = "submit" onclick="generate()"><br/>
+<input type="submit" class = "button" value="Submit" id = "submit" onclick="generate()"><br/><br/>
 <textarea cols='50' id = 'textbox'></textarea>
 </td></tr>
 </body>
