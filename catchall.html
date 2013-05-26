@@ -17,9 +17,11 @@ function generate(){
 	tally = Math.round(encodeHTML(document.getElementById("number").value).replace(/\s+/g, ' '));
 	domain = encodeHTML(document.getElementById("domain").value).replace(/\s+/g, ' ');
 	if (domain[0] != "@") domain = "@" + domain;
-	if (tally > 10000 || domain == "") alert("10000 max");
+	if (tally > 5000 || domain == "") alert("5000 max");
 	else{
 		var textbox = document.getElementById("textbox");
+		var loadingimg = document.getElementById("loading");
+		loadingimg.style.display = 'block';		
 		textbox.style.display = 'block';
 		var rows = tally;
 		if (tally > 50) rows = 50;
@@ -42,6 +44,7 @@ function generate(){
 			}
 			textbox.setAttribute("cols",maxlength+8);
 		}
+		loadingimg.style.display = 'none';
 	}
 }
 
@@ -65,6 +68,7 @@ function encodeHTML(s) {
 Enter your catchall domain: <input type='text' class = "bginput" id='domain'  size = "20"/>
 How many? <input type='text' id='number' class = "bginput"  size = "5"/>
 <input type="submit" class = "button" value="Submit" id = "submit" onclick="generate()"><br/><br/>
+<img id = "loading" src = 'loading.gif'>
 <textarea cols='50' id = 'textbox'></textarea>
 </td></tr>
 <a id = "aim" href="aim:GoIm?screenname=Charley&message=hello"><img src = "http://waidopro.com/contact/media/aim_icon.png"/></a>
